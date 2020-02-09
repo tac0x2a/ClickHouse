@@ -2,8 +2,8 @@
 
 任意の長さの文字列。長さは制限されていません。値には、ヌルバイトを含む任意のバイトセットを含めることができます。 String型は、VARCHAR、BLOB、CLOBなど、他のDBMSの型を置き換えます。
 
-## Encodings
+## エンコーディング
 
-ClickHouse doesn't have the concept of encodings. Strings can contain an arbitrary set of bytes, which are stored and output as-is. If you need to store texts, we recommend using UTF-8 encoding. At the very least, if your terminal uses UTF-8 (as recommended), you can read and write your values without making conversions. Similarly, certain functions for working with strings have separate variations that work under the assumption that the string contains a set of bytes representing a UTF-8 encoded text. For example, the 'length' function calculates the string length in bytes, while the 'lengthUTF8' function calculates the string length in Unicode code points, assuming that the value is UTF-8 encoded.
+ClickHouseにはエンコードの概念がありません。文字列には、任意のバイトセットを含めることができます。これらのバイトセットは、そのまま保存および出力されます。テキストを保存する必要がある場合は、UTF-8エンコードを使用することをお勧めします。少なくとも、端末がUTF-8を使用している場合（推奨）、変換を行わずに値を読み書きできます。同様に、文字列を操作するための特定の関数には、UTF-8エンコードされたテキストを表す一連のバイトが文字列に含まれているという仮定の下で機能する個別のバリエーションがあります。たとえば、「length」関数は文字列の長さをバイト単位で計算し、「lengthUTF8」関数は値がUTF-8エンコードであると仮定して、Unicodeコードポイントの文字列長を計算します。
 
 [Original article](https://clickhouse.yandex/docs/en/data_types/string/) <!--hide-->
